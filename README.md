@@ -63,7 +63,7 @@ This gives us important benefits:
   runtime to find compatible ones.
 
 If we use a simple, regular output language, it can be naturally
-exploited for rewriting transformations. Say I us Blub and want to
+exploited for rewriting transformations. Say I use Blub and want to
 turn `GTK_STYLE_PROPERTY_BACKGROUND_IMAGE` into
 `GTK::StyleProperty::BackgroundImage`. I could have a rewrite rule
 just for Blub:
@@ -91,8 +91,8 @@ that's a big win.
 
 Each C type name is converted to a symbol as follows:
 
-- void _ becomes pointer and void (_)() becomes function-pointer
-- Any other type foo \* becomes foo-pointer
+- `void *` becomes `pointer` and `void (*)()` becomes `function-pointer`
+- Any other type `foo *` becomes `foo-pointer`
 - Spaces are converted to dashes
 - Underscores remain underscores
 - Letter case is preserved
