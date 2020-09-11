@@ -128,8 +128,8 @@ struct-timespec-pointer
 (slot-size <type> <slot>)
 (constant <constant> signed|unsigned|string)
 (call-constant <function> <constant> signed|unsigned|string)
-(ifdef-constant <constant> signed|unsigned|string)
-(ifdef-call-constant <function> <constant> signed|unsigned|string)
+(constant-ifdef <constant> signed|unsigned|string)
+(call-constant-ifdef <function> <constant> signed|unsigned|string)
 ```
 
 ### Conditional expressions
@@ -160,17 +160,38 @@ struct-timespec-pointer
 
 ## Examples
 
-### Input
+### Simplest example
 
 ```
 (include <errno.h>)
-(ifdef-constant EACCES signed)
-(ifdef-call-constant strerror EACCES string)
+(constant EACCES signed)
 ```
 
-### Output
+### Call a C function to map one constant into another
+
+```
+(include <errno.h>)
+(call-constant strerror EACCES string)
+```
+
+### Cope with undefined constants
+
+```
+(include <errno.h>)
+(constant-ifdef EACCES signed)
+(call-constant-ifdef strerror EACCES string)
+```
+
+### Output when found
 
 ```
 (constant EACCES 13)
 (call-constant strerror EACCES "Permission denied")
+```
+
+### Output when missing
+
+```
+(constant EACCES undefined)
+(call-constant strerror EACCES undefined)
 ```
