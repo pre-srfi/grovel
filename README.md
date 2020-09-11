@@ -85,6 +85,29 @@ different languages can re-use the initial groveling stage, its
 inputs, and its outputs. Since those are the most burdensome parts,
 that's a big win.
 
+## Talking about C types in Lisp
+
+[From SRFI 176]
+
+Each C type name is converted to a symbol as follows:
+
+- void _ becomes pointer and void (_)() becomes function-pointer
+- Any other type foo \* becomes foo-pointer
+- Spaces are converted to dashes
+- Underscores remain underscores
+- Letter case is preserved
+
+For example:
+
+```
+unsigned-long-long
+unsigned-long-long-pointer
+char-pointer-pointer
+intmax_t
+struct-timespec
+struct-timespec-pointer
+```
+
 ## Input language
 
 ```
