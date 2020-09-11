@@ -38,7 +38,7 @@ for writing these listings using the C names:
 (constant GTK_WINDOW_TOPLEVEL unsigned)
 ```
 
-This input language can be fed to a groveler generator that spits out
+This input language can be fed to a groveller generator that spits out
 a C program. The C program also uses a standard output language:
 
 ```
@@ -115,9 +115,11 @@ struct-timespec-pointer
 (pkg-config <string>)
 (include <angle-bracket-header>)
 (include "string-header")
-(when <expression>)
 (error <string>)
 (warning <string>)
+
+(when <expression>
+  <body>...)
 
 (type-signedness <type>)
 (type-size <type>)
@@ -161,5 +163,5 @@ struct-timespec-pointer
 ```
 (include <errno.h>)
 (ifdef-constant EACCES signed)
-(ifdef-call-constant EACCES strerror string)
+(ifdef-call-constant strerror EACCES string)
 ```
