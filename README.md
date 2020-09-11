@@ -123,9 +123,7 @@ struct-timespec-pointer
 
 (type-signedness <type>)
 (type-size <type>)
-(slot-offset <type> <slot>)
-(slot-offset+size <type> <slot>)
-(slot-size <type> <slot>)
+(type-slot <type> <slot>)
 (constant <constant> signed|unsigned|string)
 (call-constant <function> <constant> signed|unsigned|string)
 (constant-ifdef <constant> signed|unsigned|string)
