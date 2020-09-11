@@ -160,8 +160,17 @@ struct-timespec-pointer
 
 ## Examples
 
+### Input
+
 ```
 (include <errno.h>)
 (ifdef-constant EACCES signed)
 (ifdef-call-constant strerror EACCES string)
+```
+
+### Output
+
+```
+(constant EACCES 13)
+(call-constant strerror EACCES "Permission denied")
 ```
