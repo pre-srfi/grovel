@@ -171,6 +171,7 @@ struct-timespec-pointer
 
 ```
 (include <errno.h>)
+(include <string.h>)
 (call-constant strerror EACCES string)
 ```
 
@@ -178,6 +179,7 @@ struct-timespec-pointer
 
 ```
 (include <errno.h>)
+(include <string.h>)
 (constant-ifdef EACCES signed)
 (call-constant-ifdef strerror EACCES string)
 ```
