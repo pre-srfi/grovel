@@ -1,4 +1,4 @@
-# Groveller
+# Groveler
 
 This SRFI should define:
 
@@ -10,23 +10,23 @@ This SRFI should define:
 
 ## The benefits of standardization
 
-Anyone can write a groveller; the trick is to come up with good
+Anyone can write a groveler; the trick is to come up with good
 interfaces.
 
 - Assume I write a GTK wrapper for the Blub language, and I want to
   use the constant `GTK_STYLE_PROPERTY_BACKGROUND_IMAGE` from the C
   source. The idiomatic Blub constant is
-  `GTK::StyleProperty::BackgroundImage` so I write my groveller to emit
+  `GTK::StyleProperty::BackgroundImage` so I write my groveler to emit
   that.
 - Another person writes a GTK wrapper for BlubLisp, where the
   idiomatic constant is `gtk:style-property-background-image` so they
-  write a groveller to emit that.
-- A third person wants to drop the prefixes so they write a groveller
+  write a groveler to emit that.
+- A third person wants to drop the prefixes so they write a groveler
   that emits simply `BackgroundImage`.
 - Etc.
 
 These people cannot share the load of wrapping GTK because they are
-missing a common language. Each must write a groveller from scratch.
+missing a common language. Each must write a groveler from scratch.
 
 A big part of the work in wrapping constants is simply finding and
 listing them all. We can introduce a simple intermediate language just
@@ -38,7 +38,7 @@ for writing these listings using the C names:
 (constant GTK_WINDOW_TOPLEVEL unsigned)
 ```
 
-This input language can be fed to a groveller generator that spits out
+This input language can be fed to a groveler generator that spits out
 a C program. The C program also uses a standard output language:
 
 ```
